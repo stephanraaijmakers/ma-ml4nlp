@@ -9,7 +9,7 @@ from sklearn import metrics
 import convokit
 from convokit import Corpus, download, TextCleaner, FightingWords
 
-# Stephan Raaijmakers 2022
+# Stephan Raaijmakers LUCL - July 2022
 
 def process_data():
 #    movie_corpus = Corpus(download('movie-corpus')) # do this once
