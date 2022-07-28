@@ -76,11 +76,8 @@ if __name__=="__main__":
         print(text_test[n],y_test[n], pred)
         n+=1
 
-    
-
     print("Precision:",metrics.precision_score(y_test, y_pred))
     print("Recall:",metrics.recall_score(y_test, y_pred))
     print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
-
 
     exit(0)    
