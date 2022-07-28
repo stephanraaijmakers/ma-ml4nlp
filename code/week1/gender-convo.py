@@ -9,9 +9,10 @@ from sklearn import metrics
 import convokit
 from convokit import Corpus, download, TextCleaner, FightingWords
 
+# Stephan Raaijmakers 2022
 
 def process_data():
-#    movie_corpus = Corpus(download('movie-corpus'))
+#    movie_corpus = Corpus(download('movie-corpus')) # do this once
     print("Loading data...")
 
     movie_corpus=Corpus(filename='/home/stephan/.convokit/downloads/movie-corpus')
@@ -65,19 +66,6 @@ if __name__=="__main__":
         X_test.append(values)
         y_test.append(label)
         text_test.append(utt)
-
-
-    #for m in male[:1000]:
-    #    values=list(vectorizer.transform([m]).toarray()[0])
-    #    X.append(values)
-    #    y.append(0.0)
-
-    #for f in female[:1000]:
-    #    values=list(vectorizer.transform([f]).toarray()[0])
-    #    X.append(values)
-    #    y.append(1.0)
-
-    #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
     clf = svm.SVC(kernel = "rbf")
     clf.fit(X_train, y_train)
