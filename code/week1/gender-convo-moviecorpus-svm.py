@@ -9,12 +9,14 @@ from sklearn import metrics
 import convokit
 from convokit import Corpus, download, TextCleaner, FightingWords
 
+import os
+
 
 def process_data():
 #    movie_corpus = Corpus(download('movie-corpus'))
     print("Loading data...")
-
-    movie_corpus=Corpus(filename='~/.convokit/downloads/movie-corpus')
+    home_dir=os.getenv("HOME")
+    movie_corpus=Corpus(filename=home_dir+"/"+'.convokit/downloads/movie-corpus')
     print("Data loaded.")
     
     male=[]
