@@ -16,7 +16,7 @@ def process_data():
 #    movie_corpus = Corpus(download('movie-corpus'))
     print("Loading data...")
     home_dir=os.getenv("HOME")
-    movie_corpus=Corpus(filename=home_dir+"/"+'.convokit/downloads/movie-corpus')
+    movie_corpus=Corpus(filename=home_dir+"/.convokit/downloads/movie-corpus")
     print("Data loaded.")
     
     male=[]
