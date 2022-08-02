@@ -9,13 +9,12 @@ from sklearn import metrics
 import convokit
 from convokit import Corpus, download, TextCleaner, FightingWords
 
-# Stephan Raaijmakers LUCL - July 2022
 
 def process_data():
-#    movie_corpus = Corpus(download('movie-corpus')) # do this once
+#    movie_corpus = Corpus(download('movie-corpus'))
     print("Loading data...")
 
-    movie_corpus=Corpus(filename='/home/stephan/.convokit/downloads/movie-corpus')
+    movie_corpus=Corpus(filename='~/.convokit/downloads/movie-corpus')
     print("Data loaded.")
     
     male=[]
@@ -67,6 +66,19 @@ if __name__=="__main__":
         y_test.append(label)
         text_test.append(utt)
 
+
+    #for m in male[:1000]:
+    #    values=list(vectorizer.transform([m]).toarray()[0])
+    #    X.append(values)
+    #    y.append(0.0)
+
+    #for f in female[:1000]:
+    #    values=list(vectorizer.transform([f]).toarray()[0])
+    #    X.append(values)
+    #    y.append(1.0)
+
+    #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
     clf = svm.SVC(kernel = "rbf")
     clf.fit(X_train, y_train)
 
@@ -76,8 +88,11 @@ if __name__=="__main__":
         print(text_test[n],y_test[n], pred)
         n+=1
 
+    
+
     print("Precision:",metrics.precision_score(y_test, y_pred))
     print("Recall:",metrics.recall_score(y_test, y_pred))
     print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
+
 
     exit(0)    
