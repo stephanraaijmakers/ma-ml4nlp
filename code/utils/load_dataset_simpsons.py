@@ -80,13 +80,13 @@ def process_data_simpsons(fn_speakers, fn_utterances, fn_conversations):
     utterance_list = utterance_corpus.values()
 
     corpus = Corpus(utterances=utterance_list)
-    corpus.dump("/home/stephan/.convokit/saved-corpora/simpsons-corpus")
+    corpus.dump("/content/simpsons-corpus")
     convo_ids = corpus.get_conversation_ids()
     for i, convo_idx in enumerate(convo_ids[0:5]):
         print("sample conversation {}:".format(i))
         print(corpus.get_conversation(convo_idx).get_utterance_ids())
 
-    meta_index(filename = os.path.join(os.path.expanduser("~"), ".convokit/saved-corpora/simpsons-corpus"))
+    meta_index(filename = "/content/simpsons-corpus")
     
 
 if __name__=="__main__":
