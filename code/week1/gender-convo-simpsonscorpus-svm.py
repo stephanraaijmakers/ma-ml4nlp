@@ -14,7 +14,7 @@ def process_data():
 #    simpsons_corpus = Corpus(download('simpsons-corpus'))
     print("Loading data...")
 
-    simpsons_corpus=Corpus(filename='/home/stephan/.convokit/saved-corpora/simpsons-corpus')
+    simpsons_corpus=Corpus(filename='/content/simpsons-corpus')
     print("Data loaded.")
     
     male=[]
@@ -33,7 +33,7 @@ def process_data():
             male.append(text)
     print("Done.")
     print(len(male),len(female))
-    return male[:5000], female[:5000]
+    return male[:1000], female[:1000]
 
 
 if __name__=="__main__":
