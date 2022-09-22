@@ -14,7 +14,7 @@ def process_data():
 #    dailydialog_corpus = Corpus(download('dailydialog-corpus'))
     print("Loading data...")
 
-    dailydialog_corpus=Corpus(filename='/home/stephan/.convokit/saved-corpora/dailydialog-corpus')
+    dailydialog_corpus=Corpus(filename='/content/dailydialog-corpus')
     print("Data loaded.")
     
     pos=[]
