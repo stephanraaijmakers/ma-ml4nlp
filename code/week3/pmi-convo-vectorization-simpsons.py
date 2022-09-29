@@ -19,6 +19,9 @@ import convokit
 from convokit import Corpus, download, TextCleaner, FightingWords
 from tqdm import tqdm
 
+import nltk
+from nltk.collocations import *
+
 # Reuses some of https://www.kaggle.com/code/gabrielaltay/word-vectors-from-pmi-matrix/notebook
 
 
@@ -26,7 +29,7 @@ def process_data():
 #    simpsons_corpus = Corpus(download('simpsons-corpus'))
     print("Loading data...")
 
-    simpsons_corpus=Corpus(filename='/home/stephan/.convokit/saved-corpora/simpsons-corpus')
+    simpsons_corpus=Corpus(filename='/content/simpsons-corpus')
     print("Data loaded.")
     
     male=[]
@@ -146,6 +149,23 @@ def create_ppmi(priors, joints):
 
 def main():
     male, female=process_data()
+
+    # First, do a quick collocation anaklysis of the data:
+    bigram_measures = nltk.collocations.BigramAssocMeasures()
+    all_words=[]
+    for text in male:
+        all_words.extend(nltk.wordpunct_tokenize(text))
+    finder = BigramCollocationFinder.from_words(all_words)
+    finder.apply_freq_filter(3) # must occur minimally 3 times
+
+    bigrams=finder.nbest(bigram_measures.pmi, 100)
+    bi_out=open("simpsons-bigrams-PMI.txt","w")
+    for bigram in bigrams:
+        bi_out.write(str(bigram)+"\n")
+    bi_out.close()
+    print("See simpsons-bigrams-PMI.txt")
+
+
     out=open("simpsons-texts.txt","w")
     for t in male:
         out.write("Male:"+t+"\n")
@@ -162,12 +182,13 @@ def main():
     mat=create_ppmi(priors, joints)
     print("PPMI done.")
     common=priors.most_common(10)
-    for (word, freq) in common:
-        print(word, [w for w in most_similar(word,mat,5,tok2indx, indx2tok) if w[0]!=word]) # 5,10,20...
+    #for (word, freq) in common:
+    #    print(word, [w for w in most_similar(word,mat,5,tok2indx, indx2tok) if w[0]!=word]) # 5,10,20...
 
+    
     inp=""
     while inp!="#":
-        inp=input("Type a word:")
+        inp=input("Type a word (# to stop):")
         if inp=="#":
             break
         if inp not in tok2indx:
