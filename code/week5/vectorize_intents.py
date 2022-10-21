@@ -80,7 +80,6 @@ X_test_labels=y_test
 w2v_model=build_w2v_model()
 dimension=100
 
-print(y_train)
 X_train, y_train,y_train_set, _X_train_text=word2vec_transformer(X_train,y_train, w2v_model,dimension)
 X_test, y_test,y_test_set, X_test_texts,=word2vec_transformer(X_test,y_test,w2v_model,dimension)
 
