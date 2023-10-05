@@ -134,7 +134,7 @@ def main():
         text_test.append(utt)
     print("Done.")
 
-    run_maxent(X_train[:200],X_test[:200])
+    run_maxent(X_train[:1000],X_test[:100])
 
     
 if __name__=="__main__":
