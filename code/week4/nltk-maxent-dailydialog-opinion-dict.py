@@ -65,12 +65,12 @@ def run_maxent(train,test):
     classifier = nltk.classify.MaxentClassifier.train(train, trace=3, max_iter=1000)
     print("Done.")
     
-    mfeat=open("maxent-feature-weights.txt","w")
-    for (featureset, _label) in test:
+    mfeat=open("maxent-predictions-sentiment.txt","w")
+    for (featureset, label) in test: # don't use the label, keep it for printing 
         pdist = classifier.prob_classify(featureset)
-        print("%s positive=%f negative=%f" %(featureset, pdist.prob('positive'),pdist.prob('negative')), file=mfeat)
+        print("GT=%s %s positive=%f negative=%f" %(label, featureset, pdist.prob('positive'),pdist.prob('negative')), file=mfeat)
     mfeat.close()
-    print("See maxent-feature-weights.txt")
+    print("See maxent-predictions-sentiment.txt")
     print("Top most important features:")
     print("------------------------------------")
     classifier.show_most_informative_features()
@@ -89,8 +89,8 @@ def read_pos_neg():
 
 def main():
     pos,neg=process_data()
-    vectorizer=TfidfVectorizer(stop_words='english', max_features=5000)
-    vectorizer.fit(pos+neg)
+#    vectorizer=TfidfVectorizer(stop_words='english', max_features=5000)
+#    vectorizer.fit(pos+neg)
 
     X=[]
     y=[]
@@ -119,7 +119,7 @@ def main():
         else:
             label="positive"
         d=detect_salient_words(utt, neg_salient, pos_salient)
-        X_train.append((d, label))
+        X_train.append((d, label)) # we don't use the label of course
         y_train.append(label)
 
     for (utt, label) in labeled_utt_test:
@@ -128,7 +128,7 @@ def main():
         else:
             label="positive"
         d=detect_salient_words(utt, neg_salient, pos_salient)
-        X_test.append((d,label))
+        X_test.append((d,label)) # we don't use the label of course
         y_test.append(label)
         text_test.append(utt)
     print("Done.")

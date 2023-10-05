@@ -16,36 +16,6 @@ from tqdm import tqdm
 # Does the resulting maxent classifier outperform MNB?
 
 
-def process_data():
-#    dailydialog_corpus = Corpus(download('dailydialog-corpus'))
-    print("Loading data...")
-
-    dailydialog_corpus=Corpus(filename='/home/stephan/.convokit/saved-corpora/dailydialog-corpus')
-    print("Data loaded.")
-    
-    pos=[]
-    neg=[]
-
-    print("Processing data")
-
-    
-    for utt in dailydialog_corpus.iter_utterances():
-        text=utt.text
-        speaker=utt.speaker
-        #gender=utt.speaker.meta['gender']
-        sentiment=utt.meta['sentiment']
-        if sentiment=="0":
-            neg.append(text)
-        elif sentiment=="1":
-            pos.append(text)
-    print("Done.")
-    print("No. pos",len(pos),"No.neg:",len(neg))
-    return pos[:1000], neg[:1000]
-
-
-
-
-
 def run_maxent(train,test):
     print("Training MaxEnt classifier on %d cases"%(len(train)))
     classifier = nltk.classify.MaxentClassifier.train(train, trace=3, max_iter=100)
@@ -53,7 +23,7 @@ def run_maxent(train,test):
 
     classes=["B-LOC","B-MISC","B-ORG","B-PER","I-LOC","I-MISC","I-ORG","I-PER","O"]
     
-    mfeat=open("maxent-feature-weights-ner.txt","w")
+    mfeat=open("maxent-predictions-ner.txt","w")
     for (featureset, label) in test:
         pdist = classifier.prob_classify(featureset)
         focusword="???"
@@ -66,7 +36,7 @@ def run_maxent(train,test):
             print("%s:%f"%(c,pdist.prob(c)), end=" ", file=mfeat)
         print(file=mfeat)
     mfeat.close()
-    print("See maxent-feature-weights-ner.txt")
+    print("See maxent-predictions-ner.txt")
     print("Top most important features:")
     print("------------------------------------")
     classifier.show_most_informative_features(1000)
