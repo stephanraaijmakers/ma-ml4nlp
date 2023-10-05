@@ -10,6 +10,7 @@ import convokit
 from convokit import Corpus, download, TextCleaner, FightingWords
 from tqdm import tqdm
 
+# Update 05.10.2023
 
 # Retrieve n most salient words with MNB, per pos/neg
 # Re-use those with maxent
