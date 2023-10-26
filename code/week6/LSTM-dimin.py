@@ -94,6 +94,9 @@ def process_data(fn):
     X_test=np.array(X_test)
     y_test=np.array(y_test) #, max_len, vocab_size, nb_classes
 
+    X_train = np.reshape(X_train, (X_train.shape[0],X_train.shape[1],1)) # (n_samples, 12) => (n_samples, 12,1) = n_samples of (12 rows, 1 column)
+    X_test = np.reshape(X_test, (X_test.shape[0],X_test.shape[1],1))
+
     model = Sequential()
     #model.add(Embedding(vocab_size, 128, input_length=max_len))
     #model.add(Bidirectional(LSTM(128, activation="relu")))
@@ -105,8 +108,6 @@ def process_data(fn):
     model.summary()
 
     
-
-
     output_dir = Path('dimin_attention')
     if output_dir.exists():
         shutil.rmtree(str(output_dir))
