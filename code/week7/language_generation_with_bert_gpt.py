@@ -2,21 +2,22 @@ import os
 import torch
 from torch.nn import functional as F
 import string
-from transformers import BertTokenizer, BertForMaskedLM, XLNetTokenizer, XLNetModel, AutoModelWithLMHead, AutoTokenizer, top_k_top_p_filtering, logging
-logging.set_verbosity_error()
+from transformers import pipeline, BertTokenizer, BertForMaskedLM, AutoModelForCausalLM, OpenAIGPTModel,AutoModelWithLMHead, AutoTokenizer, top_k_top_p_filtering, logging, AutoModelForSeq2SeqLM, set_seed
 
+
+logging.set_verbosity_error()
 # declare variables
 no_words_to_be_predicted = globals()
 select_model = globals()
-enter_input_text = globals()
+prompt = globals()
 
 # set model configuration
 def set_model_config(**kwargs):
   no_words_to_be_predicted = list(kwargs.values())[0] # integer values
   select_model = list(kwargs.values())[1] # possible values = 'bert' or 'gpt'
-  enter_input_text = list(kwargs.values())[2] #only string
+  prompt = list(kwargs.values())[2] #only string
 
-  return no_words_to_be_predicted, select_model, enter_input_text
+  return no_words_to_be_predicted, select_model, prompt
 
 # load model and tokenizer
 def load_model(model_name):
@@ -28,6 +29,10 @@ def load_model(model_name):
     elif model_name.lower() == "gpt":
       gpt_tokenizer = AutoTokenizer.from_pretrained("gpt2")
       gpt_model = AutoModelWithLMHead.from_pretrained("gpt2")
+      return gpt_tokenizer,gpt_model
+    elif model_name.lower() == "gpt3":
+      gpt_tokenizer = AutoTokenizer.from_pretrained("openai-gpt")
+      gpt_model = OpenAIGPTModel.from_pretrained("openai-gpt")
       return gpt_tokenizer,gpt_model
   except Exception as e:
     pass
@@ -68,78 +73,99 @@ def decode_gpt(tokenizer, input_ids, pred, top_clean):
   resulting_string = tokenizer.decode(generated.tolist()[0])
   return resulting_string
 
-def get_all_predictions(text_sentence,  model_name, top_clean=5):
+def get_all_predictions(text_sentence,  model_name, top_n, top_clean=5):
   if model_name.lower() == "bert":
     # ========================= BERT =================================
     input_ids, mask_idx = encode_bert(bert_tokenizer, text_sentence)
     with torch.no_grad():
       predict = bert_model(input_ids)[0]
-    bert = decode_bert(bert_tokenizer, predict[0, mask_idx, :].topk(no_words_to_be_predicted).indices.tolist(), top_clean)
+    bert = decode_bert(bert_tokenizer, predict[0, mask_idx, :].topk(top_n).indices.tolist(), top_clean)
     return {'bert': bert}
 
-  elif model_name.lower() == "gpt":
+  #elif model_name.lower() == "gpt2":
     # ========================= GPT =================================
-    input_ids = encode_gpt(gpt_tokenizer, text_sentence)
-    with torch.no_grad():
-      predict = gpt_model(input_ids)[0][:, -1, :]
-    gpt = decode_gpt(gpt_tokenizer, input_ids, predict, top_clean)
-    return {'gpt': gpt}
+    #input_ids = encode_gpt(gpt_tokenizer, text_sentence)
+    #with torch.no_grad():
+    #  predict = gpt_model(input_ids)[0][:, -1, :]
+    #gpt = decode_gpt(gpt_tokenizer, input_ids, predict, top_clean)
+    #return {'gpt': gpt}
+  
 
 
-def get_prediction_end_of_sentence(input_text, model_name):
+def get_prediction_end_of_sentence(prompt, model_name, top_n):
   try:
     if model_name.lower() == "bert":
-      input_text += ' <mask>'
-      #print(input_text)
-      res = get_all_predictions(input_text, model_name, top_clean=int(no_words_to_be_predicted)) 
-      return res
-    elif model_name.lower() == "gpt":
-      #print(input_text)
-      res = get_all_predictions(input_text, model_name, top_clean=int(no_words_to_be_predicted)) 
+      prompt += ' <mask>'
+      #print(prompt)
+      res = get_all_predictions(prompt, model_name, top_n) 
       return res
     else:
-      #print(input_text)
-      res = get_all_predictions(input_text, model_name, top_clean=int(no_words_to_be_predicted))
+      #print(prompt)
+      res = get_all_predictions(prompt, model_name, top_n)
       return res
 
   except Exception as error:
     pass
 
 
-no_words_to_be_predicted, select_model, enter_input_text = set_model_config(no_words_to_be_predicted=5, select_model = "bert", enter_input_text = "this is a great")
+#no_words_to_be_predicted, select_model, prompt = set_model_config(no_words_to_be_predicted=5, select_model = "bert", prompt = "this is a great")
 
-user_input="go"
+prompt="go"
 
-while user_input!="stop":
-  print("#################### Text generation with BERT/GPT #################\n")
-  select_model=input('Choose a model (bert, gpt): ')
-  enter_input_text=input('Enter a few words to get me started: ').rstrip()
-  nb_completions=int(input('How many completions should I generate? '))
+print("#################### Text generation with BERT/GPT2 #################\n")
+print("Loading models...")
+bert_tokenizer, bert_model  = load_model("bert")
 
+checkpoint_gpt2 = "gpt2-large"
+tokenizer_gpt2 = AutoTokenizer.from_pretrained(checkpoint_gpt2)
+model_gpt2 = AutoModelForCausalLM.from_pretrained(checkpoint_gpt2)
+
+print("Done.")
+
+select_model=input('Choose a model (bert, gpt2): ')
+
+while True:
   if select_model.lower() == "bert":
-    bert_tokenizer, bert_model  = load_model(select_model)
-    answer_bert = enter_input_text.split(" ")
+    prompt=input('Input: ').rstrip()
+    if prompt=="switch":
+        select_model=input('Choose a model (bert, gpt2): ')
+        continue
+    if prompt=="stop":
+      break
+    nb_completions=int(input('How many words should I generate? '))
+    answer_bert = prompt.split(" ")
     for k in range(nb_completions):
       candidates=[]
-      res = get_prediction_end_of_sentence(enter_input_text, select_model)
+      res = get_prediction_end_of_sentence(prompt, select_model, nb_completions)
       for i in res['bert'].split("\n"):
         candidates.append(i)
-      enter_input_text+=" "+candidates[0]
+      prompt+=" "+candidates[0]
       answer_bert.append(candidates[0])
     print("Generated text:",' '.join(answer_bert))
-    user_input=input("Proceed? (stop/go) ")
 
-  elif select_model.lower() == "gpt":
-    gpt_tokenizer, gpt_model  = load_model(select_model)
-    answer_gpt = enter_input_text.split(" ")
-    for k in range(nb_completions):
-      candidates=[]
-      res = get_prediction_end_of_sentence(enter_input_text, select_model)
-      generated=res['gpt'].split("\t")[0]
-      enter_input_text=generated
-    print("Generated text:",enter_input_text)
-    user_input=input("Proceed? (stop/go) ")
+  elif select_model.lower() == "gpt2":
+    prompt=input('Input: ').rstrip()
+    if prompt=="switch":
+        select_model=input('Choose a model (bert, gpt2): ')
+        continue
+    if prompt=="stop":
+      break
+    nb_completions=int(input('How many words should I generate? '))
+    inputs = tokenizer_gpt2(prompt, return_tensors="pt")
+    outputs = model_gpt2.generate(**inputs, penalty_alpha=0.6, top_k=4, max_new_tokens=nb_completions+1)
+    answer=tokenizer_gpt2.batch_decode(outputs, skip_special_tokens=True)
+    print("Generated text:",answer)
 
 
 
+#from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, set_seed
+#set_seed(0)  # For reproducibility
+#prompt = "translate English to German: The house is wonderful."
+#checkpoint = "t5-small"
+#tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+#inputs = tokenizer(prompt, return_tensors="pt")
+#model = AutoModelForSeq2SeqLM.from_pretrained(checkpoint)
+#outputs = model.generate(**inputs, num_beams=5, do_sample=True)
+#tokenizer.decode(outputs[0], skip_special_tokens=True)
+# => 'Das Haus ist wunderbar.'
 
