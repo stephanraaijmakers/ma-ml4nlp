@@ -45,8 +45,10 @@ def create_keras_model(X, y, vocab_len, max_len):
         model.add(Dense(128,input_shape=(nb_dims,1)))
         model.add(Activation('relu'))
         model.add(Dropout(0.2))
+
+        # EXPERIMENT: add a few dense layers (see code lines 51-53)
        
-        model.add(Dense(32))
+        model.add(Dense(32)) # EXPERIMENT: 48, 64, 128,...
         model.add(Activation('relu'))
         model.add(Dropout(0.1))
 
@@ -85,7 +87,7 @@ def main(fn):
     sentences, y=read_sentence_data(fn)
     X, vocab_len=featurize_data(sentences)  
     max_len=len(X[0])
-    X_train, X_test, y_train, y_test=train_test_split(X, np.array(y), test_size=0.2) # random_state=42)  
+    X_train, X_test, y_train, y_test=train_test_split(X, np.array(y), test_size=0.2) # EXPERIMENT: test_size=0.1, 0.3, 0.4.  #random_state=42) 
     model=create_keras_model(X_train,y_train, vocab_len, max_len)
     res=model.evaluate(X_test, y_test)
     print("Loss:",res[0]," Accuracy:",res[1])
