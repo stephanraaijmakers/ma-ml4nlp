@@ -124,8 +124,8 @@ def run_model_words_lstm(X,y,nb_classes, max_len): # EXPERIMENT: see options for
     
 
     model = Sequential()
-    model.add(LSTM(16, input_shape=(1,max_len), activation="relu",return_sequences=True))
-    #model.add(Dense(32, activation="relu"))
+    model.add(LSTM(16, input_shape=(1,max_len), activation="relu",return_sequences=True)) # EXPERIMENT: 16, 32, 64, 128,...
+    #model.add(Dense(32, activation="relu")) # EXPERIMENT - ADAPT "words" below
     model.add(MyAttention())
     model.add(Dense(8, activation="relu"))
     model.add(Dense(nb_classes, activation='softmax'))
@@ -148,7 +148,7 @@ def run_model_words_lstm(X,y,nb_classes, max_len): # EXPERIMENT: see options for
                 if name=="my_attention/my_attention_weight:0":
                     attention_map=weight.transpose()
             
-            words=[str(x) for x in range(16)]
+            words=[str(x) for x in range(16)] # EQUAL to number of outputs of previous layer of attention layer!
             s = colorize(words, attention_map[0])
             iteration_no = str(epoch).zfill(3)
             out_fn = f'{output_dir}/epoch_{iteration_no}.html'
@@ -183,4 +183,4 @@ def main(fn, windowSize, focusPosition):
 
 if __name__=="__main__":
     # TSV file, window size, focus position
-    main(sys.argv[1], int(sys.argv[2]), int(sys.argv[3])) # EXPERIMENT: use different window sizes and focus positions. 
+    main(sys.argv[1]))
