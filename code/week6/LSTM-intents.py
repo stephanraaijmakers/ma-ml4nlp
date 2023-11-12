@@ -182,5 +182,5 @@ def main(fn, windowSize, focusPosition):
     
 
 if __name__=="__main__":
-    # TSV file, window size, focus position
+    # TSV file
     main(sys.argv[1]))
