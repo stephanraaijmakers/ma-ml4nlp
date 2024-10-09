@@ -36,7 +36,7 @@ def process_data():
 
 
 def get_salient_words(model, vectorizer, class_id):
-    words = vectorizer.get_feature_names()
+    words = vectorizer.get_feature_names_out() # for scikit-learn > 0.24
     zipped = list(zip(words, model.feature_log_prob_[class_id]))
     sorted_zip = sorted(zipped, key=lambda t: t[1], reverse=True)
     return sorted_zip
