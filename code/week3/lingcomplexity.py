@@ -2,7 +2,7 @@ import glob
 import pandas as pd
 import seaborn as sns
 import spacy
-import textract  # To read .docx files
+#import textract  # To read .docx files
 import TRUNAJOD.givenness
 import TRUNAJOD.ttr
 from TRUNAJOD import surface_proxies
