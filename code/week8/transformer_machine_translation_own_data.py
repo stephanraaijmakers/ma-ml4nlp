@@ -9,10 +9,11 @@ from tensorflow.keras import layers
 from tensorflow.keras.layers import TextVectorization
 import nltk
 
-print("#######################################################################################################")
-print("Do pip install tensorflow==\"2.9.2\" and numpy==1.20.0 first! Set epochs = ... below to a higher number.")
-print("#######################################################################################################")
+import sys
 
+print("#######################################################################################################")
+print("Do pip install tensorflow==\"2.9.2\" and numpy==1.20.0 first! Set epochs =... below to a higher number.")
+print("#######################################################################################################")
       
 
 """
@@ -22,12 +23,8 @@ We'll be working with an English-to-Spanish translation dataset
 provided by [Anki](https://www.manythings.org/anki/). Let's download it:
 """
 
-text_file = keras.utils.get_file(
-    fname="spa-eng.zip",
-    origin="http://storage.googleapis.com/download.tensorflow.org/data/spa-eng.zip",
-    extract=True,
-)
-text_file = pathlib.Path(text_file).parent / "spa-eng" / "spa.txt"
+
+text_file = sys.argv[1]
 
 """
 ## Parsing the data
@@ -38,9 +35,11 @@ We prepend the token `"[start]"` and we append the token `"[end]"` to the Spanis
 """
 
 with open(text_file) as f:
-    lines = f.read().split("\n")[:-1]
+    lines = f.readlines(10000) # read 10K lines, CHANGE if you like
+
 text_pairs = []
 for line in lines:
+    print(line)
     eng, spa = line.split("\t")
     spa = "[start] " + spa + " [end]"
     text_pairs.append((eng, spa))
@@ -336,11 +335,9 @@ transformer = keras.Model(
 We'll use accuracy as a quick way to monitor training progress on the validation data.
 Note that machine translation typically uses BLEU scores as well as other metrics, rather than accuracy.
 
-Here we only train for 10 epochs, but to get the model to actually converge
-you should train for at least 30 epochs.
 """
 
-epochs = 10  # This should be at least 30 for convergence
+epochs = 30  # This should be at least 30 for convergence
 
 transformer.summary()
 transformer.compile(
@@ -390,7 +387,7 @@ for i in range(30):
     spanish_gt = [w for w in gt_sent.split(" ") if w!=""]
     score = nltk.translate.bleu_score.sentence_bleu([spanish_gt], spanish_pred, weights=[1.0, 0.0, 0.0, 0.0]) # only unigrams
     print("BLEU score:",score)
-
+    
 
 """
 After 30 epochs, we get results such as:
