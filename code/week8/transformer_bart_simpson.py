@@ -16,41 +16,22 @@ print("Do pip install tensorflow==\"2.9.2\" first! Set epoch=... below to a high
 print("####################################################################################")
 
 
-"""
-## Downloading the data
-
-We'll be working with an English-to-Spanish translation dataset
-provided by [Anki](https://www.manythings.org/anki/). Let's download it:
-"""
-
-
-
-
-#text_file = keras.utils.get_file(
-    #fname="spa-eng.zip",
-    #origin="http://storage.googleapis.com/download.tensorflow.org/data/spa-eng.zip",
-    #extract=True,
-    #)
-#text_file = pathlib.Path(text_file).parent / "spa-eng" / "spa.txt"
-
 text_file="./bart_simpson.txt"
 
 
 """
 ## Parsing the data
 
-Each line contains an English sentence and its corresponding Spanish sentence.
-The English sentence is the *source sequence* and Spanish one is the *target sequence*.
-We prepend the token `"[start]"` and we append the token `"[end]"` to the Spanish sentence.
+We prepend the token `"[start]"` and we append the token `"[end]"` to the Bart sentence.
 """
 
 with open(text_file) as f:
     lines = f.read().split("\n")[:-1]
 text_pairs = []
 for line in lines:
-    eng, spa = line.split("\t")
-    spa = "[start] " + spa + " [end]"
-    text_pairs.append((eng, spa))
+    other, bart = line.split("\t")
+    bart = "[start] " + bart + " [end]"
+    text_pairs.append((other, bart))
 
 """
 Here's what our sentence pairs look like:
@@ -78,21 +59,6 @@ print(f"{len(test_pairs)} test pairs")
 
 """
 ## Vectorizing the text data
-
-We'll use two instances of the `TextVectorization` layer to vectorize the text
-data (one for English and one for Spanish),
-that is to say, to turn the original strings into integer sequences
-where each integer represents the index of a word in a vocabulary.
-
-The English layer will use the default string standardization (strip punctuation characters)
-and splitting scheme (split on whitespace), while
-the Spanish layer will use a custom standardization, where we add the character
-`"¿"` to the set of punctuation characters to be stripped.
-
-Note: in a production-grade machine translation model, I would not recommend
-stripping the punctuation characters in either language. Instead, I would recommend turning
-each punctuation character into its own token,
-which you could achieve by providing a custom `split` function to the `TextVectorization` layer.
 """
 
 strip_chars = string.punctuation + "¿"
@@ -109,55 +75,40 @@ def custom_standardization(input_string):
     return tf.strings.regex_replace(lowercase, "[%s]" % re.escape(strip_chars), "")
 
 
-eng_vectorization = TextVectorization(
+other_vectorization = TextVectorization(
     max_tokens=vocab_size,
     output_mode="int",
     output_sequence_length=sequence_length,
 )
-spa_vectorization = TextVectorization(
+bart_vectorization = TextVectorization(
     max_tokens=vocab_size,
     output_mode="int",
     output_sequence_length=sequence_length + 1,
     standardize=custom_standardization,
 )
-train_eng_texts = [pair[0] for pair in train_pairs]
-train_spa_texts = [pair[1] for pair in train_pairs]
-eng_vectorization.adapt(train_eng_texts)
-spa_vectorization.adapt(train_spa_texts)
-
-"""
-Next, we'll format our datasets.
-
-At each training step, the model will seek to predict target words N+1 (and beyond)
-using the source sentence and the target words 0 to N.
-
-As such, the training dataset will yield a tuple `(inputs, targets)`, where:
-
-- `inputs` is a dictionary with the keys `encoder_inputs` and `decoder_inputs`.
-`encoder_inputs` is the vectorized source sentence and `encoder_inputs` is the target sentence "so far",
-that is to say, the words 0 to N used to predict word N+1 (and beyond) in the target sentence.
-- `target` is the target sentence offset by one step:
-it provides the next words in the target sentence -- what the model will try to predict.
-"""
+train_other_texts = [pair[0] for pair in train_pairs]
+train_bart_texts = [pair[1] for pair in train_pairs]
+other_vectorization.adapt(train_other_texts)
+bart_vectorization.adapt(train_bart_texts)
 
 
-def format_dataset(eng, spa):
-    eng = eng_vectorization(eng)
-    spa = spa_vectorization(spa)
+def format_dataset(other, bart):
+    other = other_vectorization(other)
+    bart = bart_vectorization(bart)
     return (
         {
-            "encoder_inputs": eng,
-            "decoder_inputs": spa[:, :-1],
+            "encoder_inputs": other,
+            "decoder_inputs": bart[:, :-1],
         },
-        spa[:, 1:],
+        bart[:, 1:],
     )
 
 
 def make_dataset(pairs):
-    eng_texts, spa_texts = zip(*pairs)
-    eng_texts = list(eng_texts)
-    spa_texts = list(spa_texts)
-    dataset = tf.data.Dataset.from_tensor_slices((eng_texts, spa_texts))
+    other_texts, bart_texts = zip(*pairs)
+    other_texts = list(other_texts)
+    bart_texts = list(bart_texts)
+    dataset = tf.data.Dataset.from_tensor_slices((other_texts, bart_texts))
     dataset = dataset.batch(batch_size)
     dataset = dataset.map(format_dataset)
     return dataset.shuffle(2048).prefetch(16).cache()
@@ -178,23 +129,6 @@ for inputs, targets in train_ds.take(1):
 
 """
 ## Building the model
-
-Our sequence-to-sequence Transformer consists of a `TransformerEncoder`
-and a `TransformerDecoder` chained together. To make the model aware of word order,
-we also use a `PositionalEmbedding` layer.
-
-The source sequence will be pass to the `TransformerEncoder`,
-which will produce a new representation of it.
-This new representation will then be passed
-to the `TransformerDecoder`, together with the target sequence so far (target words 0 to N).
-The `TransformerDecoder` will then seek to predict the next words in the target sequence (N+1 and beyond).
-
-A key detail that makes this possible is causal masking
-(see method `get_causal_attention_mask()` on the `TransformerDecoder`).
-The `TransformerDecoder` sees the entire sequences at once, and thus we must make
-sure that it only uses information from target tokens 0 to N when predicting token N+1
-(otherwise, it could use information from the future, which would
-result in a model that cannot be used at inference time).
 """
 
 
@@ -372,12 +306,6 @@ transformer = keras.Model(
 
 """
 ## Training our model
-
-We'll use accuracy as a quick way to monitor training progress on the validation data.
-Note that machine translation typically uses BLEU scores as well as other metrics, rather than accuracy.
-
-Here we only train for 1 epoch, but to get the model to actually converge
-you should train for at least 30 epochs.
 """
 
 epochs = 10  # This should be at least 30 for convergence
@@ -390,27 +318,22 @@ transformer.fit(train_ds, epochs=epochs, validation_data=val_ds)
 
 """
 ## Decoding test sentences
-
-Finally, let's demonstrate how to translate brand new English sentences.
-We simply feed into the model the vectorized English sentence
-as well as the target token `"[start]"`, then we repeatedly generated the next token, until
-we hit the token `"[end]"`.
 """
 
-spa_vocab = spa_vectorization.get_vocabulary()
-spa_index_lookup = dict(zip(range(len(spa_vocab)), spa_vocab))
+bart_vocab = bart_vectorization.get_vocabulary()
+bart_index_lookup = dict(zip(range(len(bart_vocab)), bart_vocab))
 max_decoded_sentence_length = 20
 
 
 def decode_sequence(input_sentence):
-    tokenized_input_sentence = eng_vectorization([input_sentence])
+    tokenized_input_sentence = other_vectorization([input_sentence])
     decoded_sentence = "[start]"
     for i in range(max_decoded_sentence_length):
-        tokenized_target_sentence = spa_vectorization([decoded_sentence])[:, :-1]
+        tokenized_target_sentence = bart_vectorization([decoded_sentence])[:, :-1]
         predictions = transformer([tokenized_input_sentence, tokenized_target_sentence])
 
         sampled_token_index = np.argmax(predictions[0, i, :])
-        sampled_token = spa_index_lookup[sampled_token_index]
+        sampled_token = bart_index_lookup[sampled_token_index]
         decoded_sentence += " " + sampled_token
 
         if sampled_token == "[end]":
@@ -425,25 +348,3 @@ while inp != "#" :
     translated = decode_sequence(input_s)
     print("Bart's reply:", translated)
     
-
-"""
-After 30 epochs, we get results such as:
-
-> She handed him the money.
-> [start] ella le pasó el dinero [end]
-
-> Tom has never heard Mary sing.
-> [start] tom nunca ha oído cantar a mary [end]
-
-> Perhaps she will come tomorrow.
-> [start] tal vez ella vendrá mañana [end]
-
-> I love to write.
-> [start] me encanta escribir [end]
-
-> His French is improving little by little.
-> [start] su francés va a [UNK] sólo un poco [end]
-
-> My hotel told me to call you.
-> [start] mi hotel me dijo que te [UNK] [end]
-"""
