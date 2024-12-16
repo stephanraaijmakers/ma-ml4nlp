@@ -76,7 +76,7 @@ def generate_probs(lines, lmm, top_k, output_file):
 def main(input_file, top_k, output_file):
     with open(input_file,"r") as f:
         lines = [z for z in [x.rstrip().split(" ") for x in f.readlines()]]
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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" # Your HuggingFace READ key here.
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "<Your HuggingFace READ key here>"
 
     #llm = HuggingFaceHub(repo_id="meta-llama/Meta-Llama-3-8B-Instruct", model_kwargs={"temperature":0.1,"max_length":128})
     llm = LMHeadModel("meta-llama/Meta-Llama-3-8B-Instruct")
