@@ -76,14 +76,14 @@ def generate_probs(lines, lmm, top_k, output_file):
 def main(input_file, top_k, output_file):
     with open(input_file,"r") as f:
         lines = [z for z in [x.rstrip().split(" ") for x in f.readlines()]]
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "<Your HuggingFace READ key here>"
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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" # Your HuggingFace READ key here.
 
     #llm = HuggingFaceHub(repo_id="meta-llama/Meta-Llama-3-8B-Instruct", model_kwargs={"temperature":0.1,"max_length":128})
     llm = LMHeadModel("meta-llama/Meta-Llama-3-8B-Instruct")
     #lmm = LMHeadModel("NousResearch/Llama-2-7b-hf") # No Huggingface key necessary for this one
     generate_probs(lines, llm, top_k, output_file)
     
-# Register at HuggingFace, and install the huggingface-cli (command kline interface).
+# Register at HuggingFace, and install the huggingface-cli (command line interface).
 # Then: prior to running this script: huggingface-cli login 
 # Enter your secret READ token (see Huggingface, under your profile: Access tokens)
 # Then run this script. NB: it will download about 20GB model stuff. 
