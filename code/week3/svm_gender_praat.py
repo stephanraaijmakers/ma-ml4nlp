@@ -39,13 +39,12 @@ def parse_args():
         allow_abbrev=False
     )
     p.add_argument("--csv", required=True, help="Path to male_female_1000.csv (header will be ignored).")
-    p.add_argument("--test_size", type=float, default=0.20, help="Test split fraction (default 0.20)")
+    p.add_argument("--test_size", type=float, default=0.20, help="Test split fraction")
     p.add_argument("--seed", type=int, default=42, help="Random seed")
-    p.add_argument("--cv", type=int, default=0, help="If >0, run StratifiedKFold cross-validation with this many folds")
+    p.add_argument("--cv", type=int, default=0, help="If >0, run StratifiedKFold cross-validation")
 
     # Feature control
-    p.add_argument("-i", "--ignore", help="Semicolon/comma-separated 1-based indices of feature columns to ignore "
-                                          "(after removing 'file' and 'label'). Example: -i 1;4;6")
+    p.add_argument("-i", "--ignore", help="Semicolon/comma-separated 1-based indices to ignore after removing 'file' and 'label' (e.g., -i 1;4;6)")
     p.add_argument("--no-scale", action="store_true", help="Disable StandardScaler (enabled by default)")
 
     # SVM hyperparameters
@@ -54,14 +53,18 @@ def parse_args():
     p.add_argument("--gamma", default="scale", help="Kernel coefficient: 'scale', 'auto', or a float")
     p.add_argument("--degree", type=int, default=3, help="Degree for poly kernel")
     p.add_argument("--coef0", type=float, default=0.0, help="coef0 for poly/sigmoid")
-    p.add_argument("--class-weight", dest="class_weight", choices=["none", "balanced"], default="none",
-                   help="Class weighting")
+    p.add_argument("--class-weight", dest="class_weight", choices=["none", "balanced"], default="none", help="Class weighting")
     p.add_argument("--probability", action="store_true", help="Enable probability estimates (slower)")
 
     # Misc
     p.add_argument("--cache-size", type=float, default=200.0, help="SVM kernel cache size (MB)")
     p.add_argument("--max-iter", type=int, default=-1, help="Hard limit on iterations (-1 = no limit)")
     p.add_argument("--model_out", default="model_svm.pkl", help="Path to save trained model bundle")
+
+    # Feature importance
+    p.add_argument("--importance", action="store_true", help="Compute and print feature importance")
+    p.add_argument("--pi-repeats", type=int, default=10, help="Permutation importance repeats (non-linear kernels)")
+    p.add_argument("--pi-n-jobs", type=int, default=-1, help="Permutation importance parallel jobs")
     return p.parse_args()
 
 def parse_ignore_indices(spec: str, max_index: int):
@@ -150,8 +153,10 @@ def main():
 
     # Build pipeline: scaler (optional) + SVC
     steps = []
+    scaler = None
     if not args.no_scale:
-        steps.append(("scaler", StandardScaler()))
+        scaler = StandardScaler()
+        steps.append(("scaler", scaler))
     svc = SVC(
         kernel=args.kernel,
         C=args.C,
@@ -194,6 +199,46 @@ def main():
         skf = StratifiedKFold(n_splits=args.cv, shuffle=True, random_state=args.seed)
         cv_scores = cross_val_score(model, X, y, cv=skf, scoring="accuracy", n_jobs=-1)
         print(f"CV mean={cv_scores.mean():.4f} std={cv_scores.std():.4f} scores={np.array2string(cv_scores, precision=4)}")
+
+    # Feature importance
+    if args.importance:
+        print("\nFeature importance:")
+        printed_any = False
+
+        # Linear SVM: coefficients as importances (on standardized features if scaling enabled)
+        try:
+            svc_fitted = model.named_steps["svc"]
+            if args.kernel == "linear" and hasattr(svc_fitted, "coef_"):
+                coefs = svc_fitted.coef_.ravel()
+                importances = np.abs(coefs)
+                ranked_idx = np.argsort(importances)[::-1]
+                print("Linear SVM coefficients (absolute, on standardized features if scaling enabled):")
+                for i in ranked_idx[:25]:
+                    print(f"  {feature_cols[i]}: {importances[i]:.6f}")
+                printed_any = True
+        except Exception:
+            pass
+
+        # Permutation importance for any kernel
+        try:
+            from sklearn.inspection import permutation_importance
+            r = permutation_importance(
+                model, X_test, y_test,
+                n_repeats=args.pi_repeats,
+                n_jobs=args.pi_n_jobs,
+                random_state=args.seed,
+                scoring="accuracy"
+            )
+            means = r.importances_mean
+            stds = r.importances_std
+            ranked_idx = np.argsort(means)[::-1]
+            print("\nPermutation importance (decrease in accuracy):")
+            for i in ranked_idx[:25]:
+                print(f"  {feature_cols[i]}: mean={means[i]:.6f} std={stds[i]:.6f}")
+            printed_any = True
+        except Exception as e:
+            if not printed_any:
+                print(f"[WARN] Could not compute feature importance: {e}")
 
     # Save bundle
     dump({
