@@ -1,0 +1,1800 @@
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: I goes to the store everyday.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: They was playing soccer last night.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She have completed her homework.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: He don't know the answer.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The sun rise in the east.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: I am eat pizza for lunch.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The students studies for the exam.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The car need to be repaired.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She will goes to the party tonight.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: They watches the movie together.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The flowers is blooming in spring.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She think she can finish the project.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The dogs barks at the mail carrier.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The kids plays video games after school.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The computer not working properly.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: He had sleep for ten hours.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: I walk to work every day last month.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She will be write a book next year.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The chef cook dinner for the guests.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: They plants a tree in the garden.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: I has been to Paris three times.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The cat catch the mouse yesterday.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The airplane fly over the city.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: He do his homework every evening.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: They was at the concert last night.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The computer running slow today.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She buy a new dress for the party.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The birds sings in the morning.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: He will finish the race in an hour.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She make a cake for her friend's birthday.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The train leave at 6 PM.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: They was listening to music.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The scientist perform experiments in the lab.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The baby cry when it's hungry.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The teacher teach the students in the classroom.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: I was work on the project all day.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She has paint her room last week.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The dog was chase the squirrel.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The flowers was watered by the gardener.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The car has been wash this morning.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The manager gives a speech at the meeting.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: They takes a vacation every summer.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: He swims in the pool every day last summer.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The athlete wins the gold medal in the race.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She is dance at the party last night.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The teacher was grading the papers all night.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The children build a sandcastle on the beach.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The company launch a new product next month.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: I have been study for the test for two weeks.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The photographer take a picture of the sunset.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The artist was draw a portrait of the model.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: He is read a book before going to bed.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The player scores a goal during the match.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The tourists visit the museum yesterday.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The weather forecast say it will rain tomorrow.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The farmer has plant the seeds in the field.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She has been make dinner for the family.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The students were study for their exams.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The concert begins in an hour.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The neighbors was moving out yesterday.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The children has fun at the amusement park.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The pilot was fly the plane during the storm.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She has bake cookies for the bake sale.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The waiter serve the food to the customers.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The author has been write a new book.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The delivery driver brings the package yesterday.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The students was taking a test in the classroom.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: He is take a break from work.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The party was organize by the event planner.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The mechanic was fixing the car.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The movie start at 8 PM.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The gardener is plant flowers in the garden.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The team were working on the project.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The musician perform at the concert.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She is going to shopping after work.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The store close at 9 PM tonight.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The cat was lay on the sofa.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The engine is make a strange noise.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The students are prepare for their presentations.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The volunteers was helping at the event.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The birds was flying south for the winter.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The cake was bake in the oven.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The package is deliver yesterday.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The athlete is train for the competition.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The car was wash by the teenager.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: She is speak at the conference tomorrow.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The doctor was examine the patient.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The store is open late on Fridays.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The tree was falling during the storm.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The children was playing in the park.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The cake is frost with chocolate icing.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The employee is work late tonight.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The train was delay due to bad weather.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The phone is charge on the table.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The dog was dig a hole in the yard.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The students is studying in the library.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The pizza is deliver to the wrong address.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The project is complete by the deadline.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The concert was cancel due to rain.
+Output:
+
+You are judging sentence grammaticality.                                                                                          
+                                                                                                                                                        
+- If the sentence is grammatical as written, output: yes                                                                                             
+- If it is ungrammatical output: no
+
+Example:
+Sentence: She goes to museum
+Output: no
+
+Sentence: She goes to the museum
+Output: yes
+
+Here are the sentences:
+
+
+Sentence: The waitress is take our order.
+Output:
