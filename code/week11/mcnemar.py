@@ -49,10 +49,6 @@ def main(fn):
         print('Same proportions of errors (fail to reject H0; p>.05)')
     else:
         print('Different proportions of errors (reject H0; p<.05)')
-        if P_M>P_N:
-            print("Metadata better than no metadata")
-        else:
-            print("No metadata better than metadata")
     fp.close()
     exit(0)
 
