@@ -2,10 +2,10 @@ import sys
 import re
 from statsmodels.stats.contingency_tables import mcnemar
 
-# Input: a file with on every line one of M, N, MN, 00 (+ newline)
-# M: classifier 1 correct, classifier 2 wrong
-# N: classifier 1 wrong, classifier 2 right
-# MN: both correct
+# Input: a file with on every line one of:
+# 10: classifier 1 correct, classifier 2 wrong
+# 01: classifier 1 wrong, classifier 2 right
+# 11: both correct
 # 00: both wrong
 
 # Run: !python mcnemar.py <file>
@@ -25,11 +25,11 @@ def main(fn):
         if m:
             N+=1
             tag=m.group(1)
-            if tag=="M":
+            if tag=="10":
                 P_M+=1
-            elif tag=='N':
+            elif tag=='01':
                 P_N+=1
-            elif tag=="MN":
+            elif tag=="11":
                 P_MN+=1
             elif tag=="00": # both wrong
                 P_None+=1
