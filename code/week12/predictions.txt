@@ -1,0 +1,12 @@
+Example 1
+Prompt: What is an empathetic version of: I don't care about that. Respond with only 1 example (a single sentence).
+Reference: I'm sorry but I have little affinity with that
+Answer: "That sounds really tough, and I understand why you'd feel that way."
+CosineSimilarity: 0.1788
+
+Example 2
+Prompt: What is a sarcastic version of: I care about that. Respond with only 1 example (a single sentence).
+Reference: I don't care at all
+Answer: Oh, you really do?
+CosineSimilarity: 0.3417
+
